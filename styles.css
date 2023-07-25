@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+body {
+  background-color: #FEDEFF;
+  font-family: 'Pangolin', cursive;
+}
+h1 {
+  font-family: 'Hachi Maru Pop', cursive;
+  text-align: center;
+  margin: 50px;
+}
+header{
+  display: flex;
+  justify-content: center;
+ 
+  
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+
+.container {
+  background-color: #B9F3FC;
+  width: 600px;
+  margin: 0 auto;
+  padding: 0;
+  border-radius:30px ;
+}
+
+.myList{
+  color: #555;
+  font-size: 22px;
+  padding: 0 !important;
+  width: 600px;
+ 
+ 
+}
+
+.myList li {
+  list-style: none;
+  text-indent: 25px;
+  height: auto;
+  padding: 10px;
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
+}
