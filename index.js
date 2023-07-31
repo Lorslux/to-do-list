@@ -1,3 +1,7 @@
+
+const tasks = [];
+
+
 function createButton() {
   let button = document.createElement("button");
   button.setAttribute("type", "button");
@@ -5,9 +9,23 @@ function createButton() {
   return button;
 }
 
-function addItem() {
+function addTaskInArray(){
+  const inputValue = document.getElementById("inputValue").value;
+  tasks.push(inputValue);
+  console.log(tasks);
+  generateTasks(tasks);
+}
+
+function generateTasks(tasks) {
+  document.querySelector("ul").innerHTML = '';
+  for (let i = 0; i < tasks.length; i++) {
+    addItemInDom(tasks[i] , i);
+  }
+}
+
+function addItemInDom(inputValue, index) {
   let uid = 0;
-  let inputValue;
+
   let taskCheckBox;
   let li;
   let deleteButton;
@@ -16,10 +34,10 @@ function addItem() {
   let editButton;
   let editIcon;
 
-  inputValue = document.getElementById("inputValue").value;
   const text = document.createTextNode(inputValue);
   li = document.createElement("li");
   li.setAttribute("id", uid++);
+  li.dataset.index = index;
 
   taskCheckBox = document.createElement("input");
   taskCheckBox.setAttribute("type", "checkbox");
@@ -49,7 +67,10 @@ function addItem() {
     editButton.appendChild(editIcon);
 
     deleteButton.addEventListener("click", function () {
+      console.log(this.parentNode , this.parentNode.dataset);
+      tasks.splice(this.parentNode.dataset.index, 1);
       this.parentNode.remove();
+      generateTasks(tasks);
     });
 
     document.getElementById("inputValue").value = "";
